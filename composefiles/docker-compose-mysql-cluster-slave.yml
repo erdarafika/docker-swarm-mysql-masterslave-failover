@@ -35,8 +35,10 @@ volumes:
   mysql02-conf:
   mysql02-initdb:
   mysql02-log:
-    
+
 networks:
+    mysqlcluster:
+        external: true
     wso2:
         external: true
 
