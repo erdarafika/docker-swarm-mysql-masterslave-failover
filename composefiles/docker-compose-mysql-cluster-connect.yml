@@ -7,7 +7,7 @@ services:
         networks:
             - mysqlcluster
         environment:
-            - MYSQL_ROOT_PASSWORD=<INSERT_ROOT_PASSWORD>
+            - MYSQL_ROOT_PASSWORD=root1234
             - MASTER=mysql01
         deploy:
             mode: replicated
