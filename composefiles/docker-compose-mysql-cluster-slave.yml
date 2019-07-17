@@ -9,7 +9,7 @@ services:
         networks:
             - mysqlcluster
         environment:
-            - MYSQL_ROOT_PASSWORD=<INSERT_ROOT_PASSWORD>
+            - MYSQL_ROOT_PASSWORD=root1234
             - SERVER_ID=2
             - BIND_ADDRESS=0.0.0.0
             - AUTO_INIT_MASTER_IP=mysql01
