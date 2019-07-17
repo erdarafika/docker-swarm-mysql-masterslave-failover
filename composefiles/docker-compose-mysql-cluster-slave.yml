@@ -14,10 +14,10 @@ services:
             - BIND_ADDRESS=0.0.0.0
             - AUTO_INIT_MASTER_IP=mysql01
         volumes:
-            - /var/dockerdata/mysqlcluster/mysql02/lib:/var/lib/mysql
-            - /var/dockerdata/mysqlcluster/mysql02/conf.d:/etc/mysql/conf.d
-            - /var/dockerdata/mysqlcluster/mysql02/log:/var/log/mysql
-            - /var/dockerdata/mysqlcluster/mysql02/initdb.d:/docker-entrypoint-initdb.d
+            - mysql02-lib:/var/lib/mysql
+            - mysql02-conf:/etc/mysql/conf.d
+            - mysql02-initdb:/var/log/mysql
+            - mysql02-log:/docker-entrypoint-initdb.d
         deploy:
             mode: replicated
             replicas: 1
@@ -28,7 +28,13 @@ services:
                 condition: on-failure
                 max_attempts: 5
             placement:
-                constraints: [node.role == worker]
+                constraints: [node.hostname == pensiuncore]
+                
+volumes:
+  mysql02-lib:
+  mysql02-conf:
+  mysql02-initdb:
+  mysql02-log:
     
 networks:
     wso2:
