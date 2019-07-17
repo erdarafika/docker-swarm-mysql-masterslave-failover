@@ -33,7 +33,7 @@ services:
             - /var/dockerdata/mysqlcluster/mysqlrouter/log:/var/log/mysqlrouter
         deploy:
             mode: replicated
-            replicas: 2
+            replicas: 1
             update_config:
                 parallelism: 1
                 delay: 60s
