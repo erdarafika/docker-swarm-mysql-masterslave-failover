@@ -13,10 +13,10 @@ services:
             - SERVER_ID=1
             - BIND_ADDRESS=0.0.0.0
         volumes:
-            - mysql01:/var/lib/mysql
-            - mysql01:/etc/mysql/conf.d
-            - mysql01:/docker-entrypoint-initdb.d
-            - mysql01:/var/log/mysql
+            - mysql01-lib:/var/lib/mysql
+            - mysql01-conf:/etc/mysql/conf.d
+            - mysql01-initdb:/docker-entrypoint-initdb.d
+            - mysql01-log:/var/log/mysql
         deploy:
             mode: replicated
             replicas: 1
@@ -30,7 +30,10 @@ services:
                 constraints: [node.role == manager]
                 
 volumes:
-  mysql01:
+  mysql01-lib:
+  mysql01-conf:
+  mysql01-initdb:
+  mysql01-log:
 
 networks:
     mysqlcluster:
