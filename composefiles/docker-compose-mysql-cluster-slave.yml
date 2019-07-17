@@ -10,7 +10,9 @@ services:
             - mysqlcluster
         environment:
             - MYSQL_ROOT_PASSWORD=root1234
-            - MASTER=mysql01
+            - SERVER_ID=2
+            - BIND_ADDRESS=0.0.0.0
+            - AUTO_INIT_MASTER_IP=mysql01
         volumes:
             - mysql02-lib:/var/lib/mysql
             - mysql02-conf:/etc/mysql/conf.d
@@ -37,6 +39,3 @@ volumes:
 networks:
     mysqlcluster:
         external: true
-    wso2:
-        external: true
-
