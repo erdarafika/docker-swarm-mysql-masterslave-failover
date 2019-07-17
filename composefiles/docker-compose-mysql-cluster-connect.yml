@@ -22,7 +22,7 @@ services:
     wso2-mysqlrouter:
         image: robinong79/mysqlrouter:2.0.4
         ports:
-            - "3306:3306"            
+            - "3309:3306"            
         networks:
             - mysqlcluster
         environment:
