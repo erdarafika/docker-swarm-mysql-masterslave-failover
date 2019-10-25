@@ -14,10 +14,10 @@ services:
             - BIND_ADDRESS=0.0.0.0
             - AUTO_INIT_MASTER_IP=mysql01
         volumes:
-            - mysql02-lib:/var/lib/mysql
-            - mysql02-conf:/etc/mysql/conf.d
-            - mysql02-initdb:/var/log/mysql
-            - mysql02-log:/docker-entrypoint-initdb.d
+            - lib:/var/lib/mysql
+            - conf:/etc/mysql/conf.d
+            - initdb:/var/log/mysql
+            - log:/docker-entrypoint-initdb.d
         deploy:
             mode: replicated
             replicas: 1
@@ -28,13 +28,13 @@ services:
                 condition: on-failure
                 max_attempts: 5
             placement:
-                constraints: [node.hostname == proxy]
+                constraints: [node.labels.mysql != false]
                 
 volumes:
-  mysql02-lib:
-  mysql02-conf:
-  mysql02-initdb:
-  mysql02-log:
+  lib:
+  conf:
+  initdb:
+  log:
 
 networks:
     mysqlcluster:
