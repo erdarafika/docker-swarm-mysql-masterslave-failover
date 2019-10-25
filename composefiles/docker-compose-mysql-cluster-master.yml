@@ -27,7 +27,7 @@ services:
                 condition: none
                 max_attempts: 5
             placement:
-                constraints: [node.labels.mysql != false ]
+                constraints: [node.labels.mysql != false]
                 
 volumes:
   lib:
