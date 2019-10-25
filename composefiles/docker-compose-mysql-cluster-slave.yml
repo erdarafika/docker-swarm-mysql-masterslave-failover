@@ -28,7 +28,7 @@ services:
                 condition: on-failure
                 max_attempts: 5
             placement:
-                constraints: [node.labels.mysql != false]
+                constraints: [node.hostname == core-qa]
                 
 volumes:
   lib:
